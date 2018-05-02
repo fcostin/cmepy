@@ -15,41 +15,59 @@ Features
 
 Dependencies
 ~~~~~~~~~~~~
-CmePy was developed for Python_ 2.5, and depends upon the following packages:
 
- *   SciPy_ 0.7
- *   Numpy_ 1.2.1
- *   Matplotlib_ (required only to plot example results)
+CmePy supports Python_ 2.7 and depends upon SciPy_, Numpy_ and Matplotib_ .
 
-CmePy also works with Python_ 2.6, provided SciPy_ 0.7 and Numpy_ 1.3 are used.
-The latest version of CmePy also works with Python_ 2.7.
+In the past, CmePy has also run under Python_ 2.5 and 2.6.
 
-Obtaining CmePy
+Getting Started
 ~~~~~~~~~~~~~~~
 
-If you have the Git_ version control system installed, you can 
-check out a copy of CmePy directly from GitHub, via::
+Here is a brief example of how to download CmePy, install CmePy's
+dependencies into an isolated virtual environment, run all the unit
+tests, then install CmePy into the virtual environment.
+
+Prerequisites:
+
+ *    you are running Ubuntu 16.04 LTS or a similar Linux distribution
+ *    Git_, Python_ 2.7 and Virtualenv_ are installed.
+
+In order for Virtualenv to work, you must use the same environment for
+all steps in this example.
+
+First, create a fresh virtual environment to use for CmePy and its dependencies::
+
+	mkdir -p ~/cmepy_working_dir
+	cd ~/cmepy_working_dir
+	virtualenv .venv
+
+Activate the virtual environment::
+
+	source .venv/bin/activate
+
+Next, download the latest version of CmePy::
 
 	git clone git://github.com/hegland/cmepy.git
 
-Testing and Installation
-~~~~~~~~~~~~~~~~~~~~~~~~
-Once CmePy has been obtained, the package can be tested by running the
-**test_all.py** script via Python_ as follows::
+Install CmePy's runtime and test dependencies into the virtual environment::
 
-    python test_all.py
+	cd cmepy
+	pip install -r requirements.txt
+	pip install -r test_requirements.txt
 
-CmePy may then be installed via the **setup.py** script::
+Run the unit test suite to confirm that all tests are passing::
 
-    python setup.py install
+	pytest
 
-More detailed installation tips are available via the
-`online documentation <http://hegland.github.com/cmepy/>`_.
+Finally, install CmePy into the virtual environment::
+
+	python setup.py install
 
 
 Documentation
 ~~~~~~~~~~~~~
 See http://hegland.github.com/cmepy/
+
 
 Authors
 ~~~~~~~
@@ -63,3 +81,5 @@ Authors
 .. _Numpy: http://numpy.scipy.org/
 .. _Matplotlib: http://matplotlib.sourceforge.net/
 .. _Git: http://git-scm.com/
+.. _Virtualenv: https://virtualenv.pypa.io/en/stable/
+
