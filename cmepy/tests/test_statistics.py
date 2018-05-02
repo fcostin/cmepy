@@ -1,9 +1,19 @@
 import unittest
 import numpy
 from numpy.testing.utils import assert_almost_equal
+import contextlib
 
 
 from cmepy import statistics
+
+
+@contextlib.contextmanager
+def temporary_numpy_seterr(**kwargs):
+    # context for temporarily modifying numpy.seterr state
+    old = numpy.seterr(**kwargs)
+    yield
+    numpy.seterr(**old)
+
 
 class StatisticsTests(unittest.TestCase):
     def test_one_dee_distributions(self):
@@ -214,6 +224,7 @@ class StatisticsTests(unittest.TestCase):
             assert_almost_equal(a.lp_distance(a, p), 0.0)
             assert a.lp_norm(p) > 0.0
         
-        assert numpy.isinf(a.kl_divergence(statistics.Distribution()))
-        assert_almost_equal(a.kl_divergence(a), 0.0)
+        with temporary_numpy_seterr(divide='ignore'):
+            assert numpy.isinf(a.kl_divergence(statistics.Distribution()))
+            assert_almost_equal(a.kl_divergence(a), 0.0)
 
