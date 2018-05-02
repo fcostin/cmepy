@@ -8,3 +8,7 @@
 *.log
 *.out
 doc/_build
+build/
+cmepy.egg-info/
+dist/
+.pytest_cache
