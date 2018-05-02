@@ -59,12 +59,3 @@ class ModelTests(unittest.TestCase):
         m = transcription_regulation.create_model()
         phi = transcription_regulation.create_time_dependencies()
 
-def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(ModelTests)
-    return suite
-
-def main():
-    unittest.run(ModelTests)
-
-if __name__ == '__main__':
-    main()

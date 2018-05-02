@@ -77,13 +77,4 @@ class DomainTests(unittest.TestCase):
         for i, goal_state in enumerate(goal_states):
             assert_array_equal(states[:, i], goal_state)
             assert p_0[goal_state] == values[i]
-    
-def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(DomainTests)
-    return suite
 
-def main():
-    unittest.run(DomainTests)
-
-if __name__ == '__main__':
-    main()

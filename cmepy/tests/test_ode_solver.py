@@ -127,13 +127,4 @@ class OdeSolverTests(unittest.TestCase):
             solver.step(t)
             assert solver.t == t
             numpy.testing.utils.assert_almost_equal(solver.y, z_0 + t)
-        
-def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(OdeSolverTests)
-    return suite
 
-def main():
-    unittest.run(OdeSolverTests)
-
-if __name__ == '__main__':
-    main()

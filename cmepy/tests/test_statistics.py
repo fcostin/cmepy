@@ -216,14 +216,4 @@ class StatisticsTests(unittest.TestCase):
         
         assert numpy.isinf(a.kl_divergence(statistics.Distribution()))
         assert_almost_equal(a.kl_divergence(a), 0.0)
-        
-        
-def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(StatisticsTests)
-    return suite
 
-def main():
-    unittest.run(StatisticsTests)
-
-if __name__ == '__main__':
-    main()

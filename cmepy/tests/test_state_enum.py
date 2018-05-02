@@ -133,14 +133,4 @@ class StateEnumTests(unittest.TestCase):
         for state in q_sparse:
             assert state in p_sparse
             assert p_sparse[state] == q_sparse[state]
-    
 
-def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(StateEnumTests)
-    return suite
-
-def main():
-    unittest.run(StateEnumTests)
-
-if __name__ == '__main__':
-    main()

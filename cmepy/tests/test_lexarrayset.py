@@ -71,12 +71,3 @@ class LexArraySetTests(unittest.TestCase):
                                      True,
                                      False, ])
 
-def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(LexArraySetTests)
-    return suite
-
-def main():
-    unittest.run(LexArraySetTests)
-
-if __name__ == '__main__':
-    main()

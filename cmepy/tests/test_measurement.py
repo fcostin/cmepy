@@ -19,15 +19,3 @@ class MeasurementTests(unittest.TestCase):
         assert_almost_equal(numpy.array(m.variance),
                             [0, 0.25, 0])
 
-def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(MeasurementTests)
-    return suite
-
-def main():
-    unittest.run(MeasurementTests)
-
-if __name__ == '__main__':
-    main()
-
-        
-        

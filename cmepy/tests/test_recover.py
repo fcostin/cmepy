@@ -54,14 +54,4 @@ class RecorderTests(unittest.TestCase):
         
         cov = rec[('even', 'odd')].covariance
         assert_almost_equal(cov, numpy.array([0.41]))
-        
-        
-def suite():
-    suite = unittest.TestLoader().loadTestsFromTestCase(RecorderTests)
-    return suite
 
-def main():
-    unittest.run(RecorderTests)
-
-if __name__ == '__main__':
-    main()

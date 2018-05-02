@@ -157,12 +157,3 @@ class SolverTests(unittest.TestCase):
             exact_monomolecular_abc(t_max, exact_size)
         )
 
-def suite():
-    test_suite = unittest.TestLoader().loadTestsFromTestCase(SolverTests)
-    return test_suite
-
-def main():
-    unittest.run(SolverTests)
-
-if __name__ == '__main__':
-    main()
